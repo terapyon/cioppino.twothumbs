@@ -25,9 +25,12 @@ class LikeWidgetView(BrowserView):
         return self.render()
 
     def canRate(self):
-        portal_state = getMultiAdapter((self.context, self.request),
-                                       name='plone_portal_state')
-        return not portal_state.anonymous()
+        # portal_state = getMultiAdapter((self.context, self.request),
+        #                                name='plone_portal_state')
+        # return not portal_state.anonymous()
+        mtool = getToolByName(self.context, 'portal_membership')
+        member = mtool.getAuthenticatedMember()
+        return member.has_role(['Manager', 'Site Administrator'])
 
     def getStats(self):
         """

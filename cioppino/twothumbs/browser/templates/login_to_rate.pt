@@ -11,10 +11,12 @@
 </tal:comment>
 
 <div tal:omit-tag="" i18n:translate="">
-    <span i18n:name="login" tal:omit-tag="">
-        <a href="login_form" class="link-overlay"
-           i18n:translate="">Log in</a>
-    </span> to rate
+    <!--<span i18n:name="login" tal:omit-tag="">-->
+        <!--<a href="login_form" class="link-overlay"-->
+           <!--i18n:translate="">Log in</a>-->
+    <!--</span> to rate-->
+    <!--<a i18n:name="close-link" i18n:attributes="title" title="Close" class="close-link" href="#">&nbsp;</a>-->
+    You can't rate, Site Administrator only to rate
     <a i18n:name="close-link" i18n:attributes="title" title="Close" class="close-link" href="#">&nbsp;</a>
 </div>
 </html>
