@@ -89,7 +89,9 @@ def getTally(context):
     return {
             'ups': len(annotations[yays]),
             'downs': len(annotations[nays]),
-            'mine': getMyVote(context)
+            'mine': getMyVote(context),
+            'positive_voter' : get_positive_voter(context),
+            'negative_voter' : get_negative_voter(context),
             }
 
 
@@ -124,3 +126,15 @@ def getTotalPositiveRatings(context):
         return len(annotations[yays])
 
     return 0
+
+def get_positive_voter(context):
+    annotations = IAnnotations(context)
+    if yays in annotations:
+        return list(annotations[yays].keys())
+    return []
+
+def get_negative_voter(context):
+    annotations = IAnnotations(context)
+    if nays in annotations:
+        return list(annotations[nays].keys())
+    return []

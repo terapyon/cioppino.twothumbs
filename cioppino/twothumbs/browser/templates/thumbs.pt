@@ -23,23 +23,28 @@
                 i18n:attributes="value; title"
                 tal:attributes="id  string:${context/id}_submit_like;" />
         </span>
-        <span
-            tal:attributes="class   python:'thumbs-down' + (myVote==-1 and ' selected' or '')">
-            <input type="submit" name="form.hatedit" value="Ugh"
-                class="allowMultiSubmit dislike-button" title="I dislike this (click again to undo)"
-                i18n:attributes="value; title"
-                tal:attributes="id  string:${context/id}_submit_like;"/>
-        </span>
+        <!--<span-->
+            <!--tal:attributes="class   python:'thumbs-down' + (myVote==-1 and ' selected' or '')">-->
+            <!--<input type="submit" name="form.hatedit" value="Ugh"-->
+                <!--class="allowMultiSubmit dislike-button" title="I dislike this (click again to undo)"-->
+                <!--i18n:attributes="value; title"-->
+                <!--tal:attributes="id  string:${context/id}_submit_like;"/>-->
+        <!--</span>-->
     </form>
     <div class="like-summary">
         <span class="total-thumbs-up" i18n:translate="">
             <span class="tally-total" tal:content="stats/ups"
                   i18n:name="likes" /> likes,
         </span>
-        <span class="total-thumbs-down" i18n:translate="">
-            <span class="tally-total" tal:content="stats/downs"
-                  i18n:name="dislikes" /> dislikes
-        </span>
+        <ul class="" tal:repeat="user stats/positive_voter">
+            <li><a href=""
+                   tal:attributes="href string:${context/portal_url}/author/${user}"
+                   tal:content="user">user id</a></li>
+        </ul>
+        <!--<span class="total-thumbs-down" i18n:translate="">-->
+            <!--<span class="tally-total" tal:content="stats/downs"-->
+                  <!--i18n:name="dislikes" /> dislikes-->
+        <!--</span>-->
 
     </div>
 </div>
