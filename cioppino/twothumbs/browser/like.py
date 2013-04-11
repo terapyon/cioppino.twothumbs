@@ -30,7 +30,8 @@ class LikeWidgetView(BrowserView):
         # return not portal_state.anonymous()
         mtool = getToolByName(self.context, 'portal_membership')
         member = mtool.getAuthenticatedMember()
-        return member.has_role(['Manager', 'Site Administrator'])
+        has_roles = member.getRolesInContext(self.context)
+        return bool(has_roles & set(['Manager', 'Site Administrator']))
 
     def getStats(self):
         """
