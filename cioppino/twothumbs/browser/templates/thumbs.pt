@@ -39,7 +39,7 @@
         <ul class="" tal:repeat="user stats/positive_voter">
             <li><a href=""
                    tal:attributes="href string:${context/portal_url}/author/${user}"
-                   tal:content="user">user id</a></li>
+                   tal:content="python:view.get_fullname_by_userid(user)">fullname or user id</a></li>
         </ul>
         <!--<span class="total-thumbs-down" i18n:translate="">-->
             <!--<span class="tally-total" tal:content="stats/downs"-->

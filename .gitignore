@@ -14,3 +14,4 @@ var
 downloads
 *.bak
 *.mo
+.idea/

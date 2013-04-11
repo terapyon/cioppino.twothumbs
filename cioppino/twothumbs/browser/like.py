@@ -45,6 +45,13 @@ class LikeWidgetView(BrowserView):
 
         return rate.getMyVote(self.context)
 
+    def get_fullname_by_userid(self, user_id):
+        mtool = getToolByName(self.context, 'portal_membership')
+        member = mtool.getMemberInfo(user_id)
+        if member is not None:
+            return member.get('fullname', user_id)
+        else:
+            return user_id
 
 class LikeThisShizzleView(BrowserView):
     """ Update the like/unlike status of a product via AJAX """
